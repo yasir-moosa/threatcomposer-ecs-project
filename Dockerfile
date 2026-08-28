@@ -10,7 +10,7 @@ RUN yarn build
 
 FROM nginxinc/nginx-unprivileged:${NGINX_VERSION} AS runner
 USER nginx
-COPY /app/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY /app/nginx.conf /etc/nginx/nginx.conf
 COPY --chown=nginx:nginx --from=builder /app/build /usr/share/nginx/html
 EXPOSE 8080
 
